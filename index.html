@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Class 10 CBSE Personal Study Planner for Abhishek - 37 Days Mission (20 Oct – 25 Nov 2026)">
+  <title>Class 10 Study Planner | Abhishek's Board Mission 🎯</title>
+
+  <!-- Google Fonts: Inter & Outfit & Hind (for Devanagari Hindi support) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fullscreen Celebration Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- ==========================================================================
+       1. WELCOME SPLASH LOADER (First loader with Welcome Abhishek & 3D Coin)
+       ========================================================================== -->
+  <div id="welcomeSplash">
+    <div class="splash-box">
+      <div class="splash-content">
+        <div class="coin-mascot">🪙</div>
+        <div class="splash-badge">❤️ Mother's Special Blessings · माँ का आशीर्वाद</div>
+        <h1 class="splash-title">Welcome Abhishek! 🎯</h1>
+        <p class="splash-subtitle">
+          Class 10 Board Exam Mission 2026<br>
+          <strong>20 October – 25 November (37 Days)</strong><br>
+          सफलता तुम्हारी मेहनत और निरंतरता में है!
+        </p>
+
+        <div class="splash-bar-container">
+          <div class="splash-bar" id="splashBar"></div>
+        </div>
+
+        <div>
+          <button class="splash-btn" id="splashEnterBtn">
+            🚀 Start Studying · आगे बढ़ें
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. TOP NAVIGATION BAR (Gamification Header: Coins, Streaks, Rank, Tools)
+       ========================================================================== -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <div class="nav-avatar" id="navAvatarBtn" title="Click to view Welcome Screen">🎯</div>
+        <div class="nav-user">
+          <h3>Abhishek <span>🌟</span></h3>
+          <p>Class 10 Mission Board Exam</p>
+        </div>
+      </div>
+
+      <div class="nav-stats">
+        <div class="stat-pill coin-pill" title="10 Coins earned per completed task!">
+          <span>🪙</span>
+          <span id="coinCount">0</span>
+          <span>Coins</span>
+        </div>
+
+        <div class="stat-pill streak-pill" title="Consecutive days completed">
+          <span>🔥</span>
+          <span id="streakCount">0</span>
+          <span>Day Streak</span>
+        </div>
+
+        <div class="stat-pill rank-pill" id="rankBadge" title="Your current scholar level">
+          Novice Scholar 🥉
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="soundToggleBtn" title="Sound Effects Toggle">🔊</button>
+        <button class="icon-btn" id="themeToggleBtn" title="Dark / Light Mode">🌙</button>
+        <button class="icon-btn" onclick="window.print()" title="Print / Save PDF">🖨️</button>
+        <button class="icon-btn" id="openResetModalBtn" title="Reset Checkboxes">🔄</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. MAIN CONTAINER & HERO DASHBOARD
+       ========================================================================== -->
+  <main class="main-wrapper">
+
+    <!-- Hero Card -->
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-tag">
+            <span>📅 20 October – 25 November 2026</span>
+            <span>•</span>
+            <span>37 Days Plan</span>
+          </div>
+          <h1 class="hero-title">🎯 Class 10 Personalized Study Planner</h1>
+          <p class="hero-subtitle">
+            अभिषेक, PW classes और school के साथ संतुलित 37 दिनों का संपूर्ण रिवीज़न रोडमैप। हर दिन अपने टारगेट्स पूरे करो और कॉइन्स जीतो!
+          </p>
+          <div class="quote-banner">
+            <span style="font-size: 20px;">💡</span>
+            <span id="motivationalQuoteText">“मेहनत इतनी खामोशी से करो कि तुम्हारी सफलता 10वीं बोर्ड में शोर मचा दे!” — अभिषेक, तुम कर सकते हो! 🚀</span>
+          </div>
+        </div>
+
+        <!-- Overall Progress Meter -->
+        <div class="hero-progress-card">
+          <div class="progress-circle-wrap">
+            <svg class="progress-svg" viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6366f1" />
+                  <stop offset="50%" stop-color="#ec4899" />
+                  <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+              </defs>
+              <circle class="progress-circle-bg" cx="50" cy="50" r="45"></circle>
+              <circle class="progress-circle-fg" id="heroProgressCircleFg" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="progress-center-text">
+              <span class="progress-percentage" id="heroProgressPercent">0%</span>
+              <span class="progress-subtext">Completed</span>
+            </div>
+          </div>
+          <div class="progress-details" id="heroProgressDetails">0 / 74 Tasks Done</div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">
+            Browser में auto-save सुरक्षित है
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs Bar -->
+    <nav class="view-tabs-bar">
+      <button class="tab-btn active" data-tab="schedule">
+        <span>📚</span> 37-Day Roadmap
+      </button>
+      <button class="tab-btn" data-tab="calendar">
+        <span>📅</span> Day-wise Calendar
+      </button>
+      <button class="tab-btn" data-tab="pomodoro">
+        <span>⏱️</span> Pomodoro Focus Timer
+      </button>
+      <button class="tab-btn" data-tab="timetable">
+        <span>⏰</span> Daily Timetable
+      </button>
+      <button class="tab-btn" data-tab="rules">
+        <span>📌</span> पढ़ने के नियम (Rules)
+      </button>
+    </nav>
+
+    <!-- Search & Filter Container (Active on Roadmap tab) -->
+    <div class="filter-search-container" id="filterContainer">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="टॉपिक खोजें (उदा. Light, Chemical Reactions, AP, Mandela, Acids, सूरदास, Power Sharing)..."
+        >
+      </div>
+
+      <div class="subject-filter-tags">
+        <button class="tag-btn active" data-filter="all">🌟 All Subjects</button>
+        <button class="tag-btn" data-filter="maths">📐 Maths</button>
+        <button class="tag-btn" data-filter="chemistry">🧪 Chemistry</button>
+        <button class="tag-btn" data-filter="physics">⚡ Physics</button>
+        <button class="tag-btn" data-filter="biology">🌿 Biology</button>
+        <button class="tag-btn" data-filter="sst">🏛️ SST</button>
+        <button class="tag-btn" data-filter="english">📖 English</button>
+        <button class="tag-btn" data-filter="hindi">✍️ Hindi</button>
+        <button class="tag-btn" data-filter="it">💻 IT Skills</button>
+        <button class="tag-btn" data-filter="catchup">⚡ Catch-up Days</button>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         VIEW 1: 37-DAY TOPIC-WISE ROADMAP (Timeline of Cards)
+         ========================================================================== -->
+    <section class="view-section active" id="view_schedule">
+      <div class="schedule-grid" id="scheduleGrid">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VIEW 2: DAY-WISE INTERACTIVE CALENDAR
+         ========================================================================== -->
+    <section class="view-section" id="view_calendar">
+      <div class="calendar-view-container">
+        <!-- October 2026 -->
+        <div class="month-card">
+          <div class="month-header">
+            <div class="month-title">
+              <span>🍂</span> October 2026 (अक्टूबर)
+            </div>
+            <span class="tag-btn" style="cursor: default;">Days 1 – 12</span>
+          </div>
+
+          <div class="month-days-header">
+            <div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div><div>Su</div>
+          </div>
+
+          <div class="month-grid" id="octoberCalendarGrid">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+
+        <!-- November 2026 -->
+        <div class="month-card">
+          <div class="month-header">
+            <div class="month-title">
+              <span>🍁</span> November 2026 (नवंबर)
+            </div>
+            <span class="tag-btn" style="cursor: default;">Days 13 – 37</span>
+          </div>
+
+          <div class="month-days-header">
+            <div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div><div>Su</div>
+          </div>
+
+          <div class="month-grid" id="novemberCalendarGrid">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendar Selected Day Preview Panel -->
+      <div class="calendar-preview-panel" id="calendarPreviewWrap">
+        <!-- Filled when a calendar date is clicked -->
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VIEW 3: POMODORO FOCUS TIMER
+         ========================================================================== -->
+    <section class="view-section" id="view_pomodoro">
+      <div class="pomodoro-card">
+        <h2 class="pomo-title">⏱️ Abhishek's Study Focus Timer</h2>
+        <p class="pomo-subtitle">25 मिनट गहरी एकाग्रता से पढ़ें, फिर 5 मिनट का फ्रेश ब्रेक लें।</p>
+
+        <div class="pomo-modes">
+          <button class="pomo-mode-btn active" data-mins="25">🧠 Focus (25m)</button>
+          <button class="pomo-mode-btn" data-mins="5">☕ Quick Break (5m)</button>
+          <button class="pomo-mode-btn" data-mins="15">🧘 Long Break (15m)</button>
+        </div>
+
+        <div class="pomo-dial-wrap">
+          <svg class="pomo-svg" viewBox="0 0 200 200">
+            <circle class="pomo-circle-bg" cx="100" cy="100" r="90"></circle>
+            <circle class="pomo-circle-fg" id="pomoCircleFg" cx="100" cy="100" r="90"></circle>
+          </svg>
+          <div class="pomo-timer-display">
+            <div class="pomo-digits" id="pomoDigits">25:00</div>
+            <div class="pomo-state-label">Concentration Mode</div>
+          </div>
+        </div>
+
+        <div class="pomo-controls">
+          <button class="pomo-btn pomo-btn-primary" id="pomoStartBtn">
+            ▶️ Start Focus
+          </button>
+          <button class="pomo-btn pomo-btn-secondary" id="pomoResetBtn">
+            🔄 Reset
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VIEW 4: DAILY TIMETABLE (With Live Highlight)
+         ========================================================================== -->
+    <section class="view-section" id="view_timetable">
+      <div class="table-card">
+        <div class="section-head">
+          <h2>⏰ Daily Timetable (दैनिक समय-सारणी)</h2>
+          <span class="day-number-badge">Auto-detecting Live Time</span>
+        </div>
+
+        <div class="modern-table-wrap">
+          <table class="modern-table">
+            <thead>
+              <tr>
+                <th style="width: 32%;">समय (Time)</th>
+                <th>काम / गतिविधि (Activity)</th>
+              </tr>
+            </thead>
+            <tbody id="timetableBody">
+              <!-- Rendered by app.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 18px; padding: 14px; background: rgba(99, 102, 241, 0.08); border-radius: var(--radius-md); border-left: 4px solid var(--primary); font-size: 13.5px; color: var(--text-secondary);">
+          💡 <strong>विशेष निर्देश:</strong> PW class या स्कूल का काम ज्यादा हो तो उस दिन एक ही task करो। छूटा हुआ काम <strong>Catch-up</strong> दिन में करना। नींद कम मत करना (कम से कम 7 घंटे आवश्यक हैं)।
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VIEW 5: STUDY RULES (पढ़ने के नियम)
+         ========================================================================== -->
+    <section class="view-section" id="view_rules">
+      <div class="table-card">
+        <div class="section-head">
+          <h2>📌 पढ़ने के 8 स्वर्णिम नियम (Golden Rules)</h2>
+          <span class="day-number-badge">Topper's Mindset</span>
+        </div>
+
+        <div class="rules-grid" id="rulesGrid">
+          <!-- Rendered by app.js -->
+        </div>
+
+        <div style="margin-top: 24px; text-align: center;">
+          <button class="splash-btn" onclick="window.print()">
+            🖨️ Print Full Study Plan & Rules / Save PDF
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       RESET CONFIRMATION MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="resetModal">
+    <div class="modal-card">
+      <div class="modal-icon">⚠️</div>
+      <h3 class="modal-title">सारे Checkboxes Reset करने हैं?</h3>
+      <p class="modal-desc">
+        क्या आप वाकई अपना सारा progress डेटा और कॉइन्स रीसेट करना चाहते हैं? यह क्रिया वापस नहीं ली जा सकेगी।
+      </p>
+      <div class="modal-buttons">
+        <button class="btn-secondary" id="cancelResetBtn">नहीं, वापस जाएं</button>
+        <button class="btn-danger" id="confirmResetBtn">हाँ, रीसेट करें</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
