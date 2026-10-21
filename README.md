@@ -1,6 +1,22 @@
 # 🎯 Class 10 Personal Study Planner | Abhishek's Board Mission 2026
 
-A modern, responsive, gamified web application built for **Abhishek's Class 10 CBSE Board Exam preparation** (20 October – 25 November 2026).
+A modern, responsive, gamified web & Android application built for **Abhishek's Class 10 CBSE Board Exam preparation** (20 October – 25 November 2026).
+
+---
+
+## 📱 Android App (APK)
+
+The standalone Android APK has been generated and is ready to install directly on Abhishek's Android phone:
+
+- **APK File:** [`Abhishek-Study-Planner.apk`](file:///d:/Study%20planner/Abhishek-Study-Planner.apk) (approx. 4.1 MB)
+- **Package ID:** `com.abhishek.studyplanner`
+- **Target OS:** Android 7.0 (API 24) to Android 15+ (API 36)
+- **100% Offline:** Runs without internet; sounds, coin animations, Pomodoro timer, progress gauge, and data persistence work completely offline.
+
+### How to Install on Phone:
+1. Send `Abhishek-Study-Planner.apk` to the phone (via WhatsApp, USB Cable, Bluetooth, or Google Drive).
+2. Tap the APK file on the phone to install (allow "Install unknown apps" if prompted).
+3. Open **Abhishek Study Planner** and start tracking!
 
 ---
 
@@ -38,25 +54,27 @@ A modern, responsive, gamified web application built for **Abhishek's Class 10 C
 
 ---
 
-## 🚀 How to Run Locally
+## 💻 Web Version
 
-Simply open `index.html` in any modern web browser:
+You can also run the web version on any PC:
 
 ```bash
 # In Windows PowerShell:
 Start-Process "index.html"
 ```
-
-Or double-click `index.html` in your file explorer.
+Or open [`index.html`](file:///d:/Study%20planner/index.html) in your browser.
 
 ---
 
 ## 📁 File Structure
 
 ```
-├── index.html       # Semantic HTML5 web application
-├── style.css        # Modern glassmorphism, animations, and responsive styles
-├── data.js          # Complete 37-day syllabus data, timetable, and rules
-├── app.js           # Audio synthesis (Web Audio API), confetti, coins, calendar, timer
-└── README.md        # Documentation
+├── Abhishek-Study-Planner.apk # Standalone Android APK (Ready to install)
+├── index.html                 # Semantic HTML5 web application
+├── style.css                  # Modern glassmorphism, animations, and responsive styles
+├── data.js                    # Complete 37-day syllabus data, timetable, and rules
+├── app.js                     # Audio synthesis (Web Audio API), confetti, coins, calendar, timer
+├── capacitor.config.json      # Capacitor Android config
+├── android/                   # Full native Android Studio project
+└── README.md                  # Documentation
 ```

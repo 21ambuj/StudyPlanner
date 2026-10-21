@@ -1,0 +1,26 @@
+{
+  "name": "study-planner",
+  "version": "1.0.0",
+  "description": "A modern, responsive, gamified web application built for **Abhishek's Class 10 CBSE Board Exam preparation** (20 October – 25 November 2026).",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/21ambuj/StudyPlanner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/21ambuj/StudyPlanner/issues"
+  },
+  "homepage": "https://github.com/21ambuj/StudyPlanner#readme",
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/core": "^8.5.3"
+  }
+}
